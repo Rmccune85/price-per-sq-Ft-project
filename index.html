@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price per Square Foot - Deck Cost Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Load Rectangle Class First -->
+    <script type="module" src="Rectangle.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Price per Square Foot</h1>
+        <p>Calculate the square footage and cost of building a deck.</p>
+
+        <!-- Dropdown for Length -->
+        <label for="length">Deck Length (ft):</label>
+        <select id="length"></select>
+
+        <!-- Dropdown for Width -->
+        <label for="width">Deck Width (ft):</label>
+        <select id="width"></select>
+
+        <!-- Dropdown for Price per Square Foot -->
+        <label for="price">Price per Sq Ft ($):</label>
+        <select id="price"></select>
+
+        <!-- Buttons for Calculation and Clearing -->
+        <button onclick="calculateCost()">Calculate</button>
+        <button onclick="clearOutput()">Clear</button>
+
+        <!-- Display Results -->
+        <div class="output">
+            <p>Square Feet: <span id="sqft">0</span></p>
+            <p>Total Cost: <span id="cost">$0.00</span></p>
+        </div>
+    </div>
+    <!-- Main Script -->
+    <script type="module" src="script.js"></script>
+    
+    <!-- 📌 Signature  
+    // ───── ByteShifter ─────  
+    // Crafted with 💻 & ☕  
+    // github.com/rmccune85 -->
+</body>
+</html>
