@@ -6,6 +6,7 @@ import Rectangle from './Rectangle.js';
 // ============================
 // Get DOM Elements
 // ============================
+// These variables get the input fields and display elements from the HTML
 const lengthInput = document.getElementById('length');   // Input for Length
 const widthInput = document.getElementById('width');     // Input for Width
 const priceInput = document.getElementById('price');     // Input for Price per Square Foot
@@ -23,8 +24,8 @@ const clearBtn = document.getElementById('clearBtn');    // Button for Clearing 
  */
 const calculateSquareFeet = () => {
     // Get Length and Width values
-    const length = parseFloat(lengthInput.value);
-    const width = parseFloat(widthInput.value);
+    const length = parseFloat(lengthInput.value);  // Get the length as a number
+    const width = parseFloat(widthInput.value);    // Get the width as a number
 
     // Validate inputs: must be positive numbers
     if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
@@ -33,7 +34,7 @@ const calculateSquareFeet = () => {
     }
 
     // Calculate Square Feet
-    const sqft = length * width;
+    const sqft = length * width;  // Multiply Length and Width to get Square Feet
     sqftOutput.textContent = sqft; // Display the calculated Square Feet
     return sqft;
 };
@@ -57,7 +58,7 @@ const calculateCost = () => {
     }
 
     // Calculate Total Cost
-    const totalCost = sqft * price;
+    const totalCost = sqft * price;  // Multiply Square Feet by Price per Square Foot
 
     // Display Total Cost in USD format
     costOutput.textContent = totalCost.toLocaleString("en-US", {
