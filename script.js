@@ -2,58 +2,23 @@
 import Rectangle from './Rectangle.js';
 
 // ================================
-// Function to Populate Dropdowns
-// ================================
-/**
- * Populates Length, Width, and Price dropdowns when the page loads
- */
-window.onload = function() {
-    let lengthSelect = document.getElementById('length');
-    let widthSelect = document.getElementById('width');
-    let priceSelect = document.getElementById('price');
-
-    // Populate Length and Width Dropdowns (12 to 36, Step 2)
-    for (let i = 12; i <= 36; i += 2) {
-        let optionLen = document.createElement('option');
-        optionLen.value = i;
-        optionLen.text = i;
-        lengthSelect.add(optionLen);
-
-        let optionWid = document.createElement('option');
-        optionWid.value = i;
-        optionWid.text = i;
-        widthSelect.add(optionWid);
-    }
-
-    // Populate Price Dropdown ($5.00 to $25.00, Step 0.50)
-    for (let price = 5.00; price <= 25.00; price += 0.50) {
-        let optionPrice = document.createElement('option');
-        optionPrice.value = price;
-        optionPrice.text = price.toFixed(2);
-        priceSelect.add(optionPrice);
-    }
-    // Set default price to 10.00
-    priceSelect.value = "10.00";
-}
-
-// ================================
 // Calculate Cost Function
 // ================================
 /**
  * Calculates the total cost of the deck based on:
- * - Selected Length
- * - Selected Width
- * - Selected Price per Square Foot
+ * - Manually Entered Length
+ * - Manually Entered Width
+ * - Manually Entered Price per Square Foot
  */
 export function calculateCost() {
-    // Get selected values
+    // Get values from input fields and convert to numbers
     let length = parseInt(document.getElementById('length').value);
     let width = parseInt(document.getElementById('width').value);
     let price = parseFloat(document.getElementById('price').value);
 
-    // Check if all dropdowns have valid selections
-    if (isNaN(length) || isNaN(width) || isNaN(price)) {
-        alert("Please select valid options for Length, Width, and Price.");
+    // Check if all inputs are valid numbers and greater than 0
+    if (isNaN(length) || isNaN(width) || isNaN(price) || length <= 0 || width <= 0 || price <= 0) {
+        alert("Please enter valid positive numbers for Length, Width, and Price.");
         return;
     }
 
@@ -78,6 +43,9 @@ export function calculateCost() {
 export function clearOutput() {
     document.getElementById('sqft').innerText = "0";
     document.getElementById('cost').innerText = "$0.00";
+    document.getElementById('length').value = "";
+    document.getElementById('width').value = "";
+    document.getElementById('price').value = "";
 }
 
 // ================================
