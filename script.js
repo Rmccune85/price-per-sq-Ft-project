@@ -1,61 +1,97 @@
+// ============================
 // Import Rectangle Class from Rectangle.js
+// ============================
 import Rectangle from './Rectangle.js';
 
-// ================================
-// Calculate Cost Function
-// ================================
-/**
- * Calculates the total cost of the deck based on:
- * - Manually Entered Length
- * - Manually Entered Width
- * - Manually Entered Price per Square Foot
- */
-export function calculateCost() {
-    // Get values from input fields and convert to numbers
-    let length = parseInt(document.getElementById('length').value);
-    let width = parseInt(document.getElementById('width').value);
-    let price = parseFloat(document.getElementById('price').value);
+// ============================
+// Get DOM Elements
+// ============================
+const lengthInput = document.getElementById('length');   // Input for Length
+const widthInput = document.getElementById('width');     // Input for Width
+const priceInput = document.getElementById('price');     // Input for Price per Square Foot
+const sqftOutput = document.getElementById('sqft');      // Display for Calculated Square Feet
+const costOutput = document.getElementById('cost');      // Display for Total Cost
+const calculateBtn = document.getElementById('calculateBtn'); // Button for Calculating Total Cost
+const clearBtn = document.getElementById('clearBtn');    // Button for Clearing Inputs and Outputs
 
-    // Check if all inputs are valid numbers and greater than 0
-    if (isNaN(length) || isNaN(width) || isNaN(price) || length <= 0 || width <= 0 || price <= 0) {
-        alert("Please enter valid positive numbers for Length, Width, and Price.");
+// ============================
+// Function to Calculate Square Feet
+// ============================
+/**
+ * Calculates the square footage by multiplying Length and Width.
+ * Displays the result automatically as the user enters values.
+ */
+const calculateSquareFeet = () => {
+    // Get Length and Width values
+    const length = parseFloat(lengthInput.value);
+    const width = parseFloat(widthInput.value);
+
+    // Validate inputs: must be positive numbers
+    if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
+        sqftOutput.textContent = "0";
+        return 0;
+    }
+
+    // Calculate Square Feet
+    const sqft = length * width;
+    sqftOutput.textContent = sqft; // Display the calculated Square Feet
+    return sqft;
+};
+
+// ============================
+// Function to Calculate Total Cost
+// ============================
+/**
+ * Calculates the total cost of the deck by multiplying:
+ * - Calculated Square Feet
+ * - Entered Price per Square Foot
+ */
+const calculateCost = () => {
+    const sqft = calculateSquareFeet(); // Get calculated Square Feet
+    const price = parseFloat(priceInput.value); // Get Price per Square Foot
+
+    // Validate Price and Square Feet: must be positive numbers
+    if (isNaN(price) || price <= 0 || sqft === 0) {
+        costOutput.textContent = "$0.00";
         return;
     }
 
-    // Create a Rectangle object using the imported class
-    let deck = new Rectangle(length, width);
+    // Calculate Total Cost
+    const totalCost = sqft * price;
 
-    // Calculate Area and Cost
-    let sqft = deck.GetArea();
-    let cost = sqft * price;
+    // Display Total Cost in USD format
+    costOutput.textContent = totalCost.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD"
+    });
+};
 
-    // Display Results
-    document.getElementById('sqft').innerText = sqft;
-    document.getElementById('cost').innerText = `$${cost.toFixed(2)}`;
-}
-
-// ================================
-// Clear Output Function
-// ================================
+// ============================
+// Function to Clear All Inputs and Outputs
+// ============================
 /**
- * Clears the displayed output for Square Feet and Total Cost
+ * Clears all input fields and resets displayed outputs.
  */
-export function clearOutput() {
-    document.getElementById('sqft').innerText = "0";
-    document.getElementById('cost').innerText = "$0.00";
-    document.getElementById('length').value = "";
-    document.getElementById('width').value = "";
-    document.getElementById('price').value = "";
-}
+const clearOutput = () => {
+    lengthInput.value = "";   // Clear Length input
+    widthInput.value = "";    // Clear Width input
+    priceInput.value = "";    // Clear Price input
+    sqftOutput.textContent = "0";    // Reset Square Feet display
+    costOutput.textContent = "$0.00"; // Reset Total Cost display
+};
 
-// ================================
-// Attach Event Listeners
-// ================================
-// Listens for Calculate button click
-document.getElementById('calculateBtn').addEventListener('click', calculateCost);
+// ============================
+// Event Listeners for Input and Buttons
+// ============================
+// Automatically Calculate Square Feet when Length or Width changes
+lengthInput.addEventListener('input', calculateSquareFeet);
+widthInput.addEventListener('input', calculateSquareFeet);
 
-// Listens for Clear button click
-document.getElementById('clearBtn').addEventListener('click', clearOutput);
+// Calculate Total Cost when Calculate button is clicked
+calculateBtn.addEventListener('click', calculateCost);
+
+// Clear all inputs and outputs when Clear button is clicked
+clearBtn.addEventListener('click', clearOutput);
 
 /* 📌 Signature  
 // ───── ByteShifter ─────  
