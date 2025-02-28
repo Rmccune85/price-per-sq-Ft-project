@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Price per Square Foot - Deck Cost Calculator</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Load Rectangle Class First -->
-    <script type="module" src="Rectangle.js"></script>
 </head>
 <body>
     <div class="container">
@@ -26,8 +24,8 @@
         <select id="price"></select>
 
         <!-- Buttons for Calculation and Clearing -->
-        <button onclick="calculateCost()">Calculate</button>
-        <button onclick="clearOutput()">Clear</button>
+        <button id="calculateBtn">Calculate</button>
+        <button id="clearBtn">Clear</button>
 
         <!-- Display Results -->
         <div class="output">
@@ -35,8 +33,15 @@
             <p>Total Cost: <span id="cost">$0.00</span></p>
         </div>
     </div>
+
     <!-- Main Script -->
-    <script type="module" src="script.js"></script>
+    <script type="module">
+        import { calculateCost, clearOutput } from './script.js';
+        
+        // Attach Event Listeners
+        document.getElementById('calculateBtn').addEventListener('click', calculateCost);
+        document.getElementById('clearBtn').addEventListener('click', clearOutput);
+    </script>
     
     <!-- 📌 Signature  
     // ───── ByteShifter ─────  
