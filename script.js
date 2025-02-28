@@ -1,9 +1,11 @@
-// Import Rectangle Class
+// Import Rectangle Class from Rectangle.js
 import Rectangle from './Rectangle.js';
 
+// ================================
+// Function to Populate Dropdowns
+// ================================
 /**
- * Populates dropdowns for Length, Width, and Price
- * on page load.
+ * Populates Length, Width, and Price dropdowns when the page loads
  */
 window.onload = function() {
     let lengthSelect = document.getElementById('length');
@@ -30,9 +32,13 @@ window.onload = function() {
         optionPrice.text = price.toFixed(2);
         priceSelect.add(optionPrice);
     }
+    // Set default price to 10.00
     priceSelect.value = "10.00";
 }
 
+// ================================
+// Calculate Cost Function
+// ================================
 /**
  * Calculates the total cost of the deck based on:
  * - Selected Length
@@ -40,6 +46,7 @@ window.onload = function() {
  * - Selected Price per Square Foot
  */
 export function calculateCost() {
+    // Get selected values
     let length = parseInt(document.getElementById('length').value);
     let width = parseInt(document.getElementById('width').value);
     let price = parseFloat(document.getElementById('price').value);
@@ -50,7 +57,7 @@ export function calculateCost() {
         return;
     }
 
-    // Create a Rectangle object
+    // Create a Rectangle object using the imported class
     let deck = new Rectangle(length, width);
 
     // Calculate Area and Cost
@@ -62,16 +69,24 @@ export function calculateCost() {
     document.getElementById('cost').innerText = `$${cost.toFixed(2)}`;
 }
 
+// ================================
+// Clear Output Function
+// ================================
 /**
- * Clears the displayed output.
+ * Clears the displayed output for Square Feet and Total Cost
  */
 export function clearOutput() {
     document.getElementById('sqft').innerText = "0";
     document.getElementById('cost').innerText = "$0.00";
 }
 
-// Event Listeners for Buttons
+// ================================
+// Attach Event Listeners
+// ================================
+// Listens for Calculate button click
 document.getElementById('calculateBtn').addEventListener('click', calculateCost);
+
+// Listens for Clear button click
 document.getElementById('clearBtn').addEventListener('click', clearOutput);
 
 /* 📌 Signature  
