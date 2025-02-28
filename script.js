@@ -6,7 +6,6 @@ import Rectangle from './Rectangle.js';
 // ============================
 // Get DOM Elements
 // ============================
-// These variables get the input fields and display elements from the HTML
 const lengthInput = document.getElementById('length');   // Input for Length
 const widthInput = document.getElementById('width');     // Input for Width
 const priceInput = document.getElementById('price');     // Input for Price per Square Foot
