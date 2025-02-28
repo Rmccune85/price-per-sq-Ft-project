@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Price per Square Foot - Deck Cost Calculator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Price per Square Foot</h1>
@@ -13,15 +15,21 @@
 
         <!-- Dropdown for Length -->
         <label for="length">Deck Length (ft):</label>
-        <select id="length"></select>
+        <select id="length">
+            <option value="">Select Length</option>
+        </select>
 
         <!-- Dropdown for Width -->
         <label for="width">Deck Width (ft):</label>
-        <select id="width"></select>
+        <select id="width">
+            <option value="">Select Width</option>
+        </select>
 
         <!-- Dropdown for Price per Square Foot -->
         <label for="price">Price per Sq Ft ($):</label>
-        <select id="price"></select>
+        <select id="price">
+            <option value="">Select Price</option>
+        </select>
 
         <!-- Buttons for Calculation and Clearing -->
         <button id="calculateBtn">Calculate</button>
@@ -35,14 +43,8 @@
     </div>
 
     <!-- Main Script -->
-    <script type="module">
-        import { calculateCost, clearOutput } from './script.js';
-        
-        // Attach Event Listeners
-        document.getElementById('calculateBtn').addEventListener('click', calculateCost);
-        document.getElementById('clearBtn').addEventListener('click', clearOutput);
-    </script>
-    
+    <script type="module" src="script.js"></script>
+
     <!-- 📌 Signature  
     // ───── ByteShifter ─────  
     // Crafted with 💻 & ☕  
