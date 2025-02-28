@@ -14,21 +14,21 @@
         <h1>Price per Square Foot</h1>
         <p>Calculate the square footage and cost of building a deck.</p>
 
-        <!-- Manual Input for Length -->
+        <!-- Input for Deck Length -->
         <label for="length">Deck Length (ft):</label>
-        <input type="number" id="length" placeholder="Enter Length" min="1">
+        <input type="number" id="length" placeholder="Length in feet" min="1">
 
-        <!-- Manual Input for Width -->
+        <!-- Input for Deck Width -->
         <label for="width">Deck Width (ft):</label>
-        <input type="number" id="width" placeholder="Enter Width" min="1">
-        
-         <!-- Output for Calculated Square Feet -->
+        <input type="number" id="width" placeholder="Width in feet" min="1">
+
+        <!-- Output for Calculated Square Feet -->
         <label>Square Feet:</label>
         <span id="sqft">0</span> <!-- Automatically calculated -->
 
-        <!-- Manual Input for Price per Square Foot -->
+        <!-- Input for Price per Square Foot -->
         <label for="price">Price per Sq Ft ($):</label>
-        <input type="number" id="price" placeholder="Enter Price" step="0.01" min="0.01">
+        <input type="number" id="price" placeholder="Price per square foot" step="0.01">
 
         <!-- Buttons for Calculation and Clearing -->
         <button id="calculateBtn">Calculate</button>
@@ -36,15 +36,13 @@
 
         <!-- Display Results -->
         <div class="output">
-            
             <p>Total Cost: <span id="cost">$0.00</span></p>
         </div>
     </div>
 
     <!-- Main Script -->
-    <!-- Using module type to support import/export -->
-    <script type="module" src="script.js"></script>
-
+    <script src="script.js"></script>
+    
     <!-- 📌 Signature  
     // ───── ByteShifter ─────  
     // Crafted with 💻 & ☕  
