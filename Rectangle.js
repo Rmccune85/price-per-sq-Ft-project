@@ -1,38 +1,18 @@
-// Rectangle Class in JavaScript
-class Rectangle {
-    constructor(length = 0, width = 0) {
-        this.length = length > 0 ? length : 0;
-        this.width = width > 0 ? width : 0;
+// Rectangle Class Definition
+export default class Rectangle {
+    // Constructor to initialize Length and Width
+    constructor(length, width) {
+        this.length = length;
+        this.width = width;
     }
 
-    // Getter and Setter for Length
-    get Length() {
-        return this.length;
-    }
-
-    set Length(value) {
-        this.length = value > 0 ? value : 0;
-    }
-
-    // Getter and Setter for Width
-    get Width() {
-        return this.width;
-    }
-
-    set Width(value) {
-        this.width = value > 0 ? value : 0;
-    }
-
-    // Method to Calculate Area
+    // Method to calculate area (Length x Width)
     GetArea() {
         return this.length * this.width;
     }
 }
 
-// Export the class for use in other files
-export default Rectangle;
-
-// 📌 Signature  
+/* 📌 Signature  
 // ───── ByteShifter ─────  
 // Crafted with 💻 & ☕  
-// github.com/rmccune85
+// github.com/rmccune85 */
