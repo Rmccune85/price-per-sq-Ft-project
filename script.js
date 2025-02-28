@@ -28,7 +28,7 @@ const calculateSquareFeet = () => {
 
     // Validate inputs: must be positive numbers
     if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
-        sqftOutput.textContent = "0";
+        sqftOutput.textContent = "0";  // Display 0 if invalid input
         return 0;
     }
 
@@ -52,7 +52,7 @@ const calculateCost = () => {
 
     // Validate Price and Square Feet: must be positive numbers
     if (isNaN(price) || price <= 0 || sqft === 0) {
-        costOutput.textContent = "$0.00";
+        costOutput.textContent = "$0.00";  // Display $0.00 if invalid input
         return;
     }
 
