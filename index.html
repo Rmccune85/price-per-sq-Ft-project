@@ -14,23 +14,17 @@
         <h1>Price per Square Foot</h1>
         <p>Calculate the square footage and cost of building a deck.</p>
 
-        <!-- Dropdown for Length -->
+        <!-- Manual Input for Length -->
         <label for="length">Deck Length (ft):</label>
-        <select id="length">
-            <option value="">Select Length</option>
-        </select>
+        <input type="number" id="length" placeholder="Enter Length" min="1">
 
-        <!-- Dropdown for Width -->
+        <!-- Manual Input for Width -->
         <label for="width">Deck Width (ft):</label>
-        <select id="width">
-            <option value="">Select Width</option>
-        </select>
+        <input type="number" id="width" placeholder="Enter Width" min="1">
 
-        <!-- Dropdown for Price per Square Foot -->
+        <!-- Manual Input for Price per Square Foot -->
         <label for="price">Price per Sq Ft ($):</label>
-        <select id="price">
-            <option value="">Select Price</option>
-        </select>
+        <input type="number" id="price" placeholder="Enter Price" step="0.01" min="0.01">
 
         <!-- Buttons for Calculation and Clearing -->
         <button id="calculateBtn">Calculate</button>
