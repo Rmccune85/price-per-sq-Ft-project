@@ -21,6 +21,10 @@
         <!-- Manual Input for Width -->
         <label for="width">Deck Width (ft):</label>
         <input type="number" id="width" placeholder="Enter Width" min="1">
+        
+         <!-- Output for Calculated Square Feet -->
+        <label>Square Feet:</label>
+        <span id="sqft">0</span> <!-- Automatically calculated -->
 
         <!-- Manual Input for Price per Square Foot -->
         <label for="price">Price per Sq Ft ($):</label>
@@ -32,7 +36,7 @@
 
         <!-- Display Results -->
         <div class="output">
-            <p>Square Feet: <span id="sqft">0</span></p>
+            
             <p>Total Cost: <span id="cost">$0.00</span></p>
         </div>
     </div>
